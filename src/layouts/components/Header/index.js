@@ -10,8 +10,11 @@ import {
     faSignOut,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+
+import config from '~/config';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -92,7 +95,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="Tiktok" />
+                <Link to={config.routes.home} className={cx('logo-link')}>
+                    <img src={images.logo} alt="Tiktok" />
+                </Link>
                 <Search />
                 <div className={cx('actions')}>
                     {currentUser ? (
@@ -125,7 +130,7 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/1b542c00fa9d50f65e2d73ae9c839098~c5_100x100.jpeg?x-expires=1705395600&x-signature=%2Fs8h2TrhtX12eP821IkvQPT3eBg%3D"
+                                src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
                                 alt="Pham Quang Dinh"
                             />
                         ) : (
